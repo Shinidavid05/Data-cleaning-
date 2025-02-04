@@ -1,1 +1,1 @@
-# Data-cleaning-
+# Data-cleaning-Data cleaning is the process of identifying and correcting errors or inconsistencies in a dataset. It involves handling missing values, removing duplicates, correcting incorrect data types, and dealing with outliers. The goal is to ensure the dataset is accurate, complete, and ready for analysis or modeling.
