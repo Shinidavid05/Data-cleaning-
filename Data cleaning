@@ -1,0 +1,42 @@
+ *data cleaning* and *Exploratory Data Analysis (EDA)* on the Titanic dataset:
+
+Import necessary libraries
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+Load Titanic dataset from CSV (can be downloaded from Kaggle)
+url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
+df = pd.read_csv(url)
+
+Data Cleaning
+
+Check for missing values
+print("Missing Values:\n", df.isnull().sum())
+
+Drop columns that may not be relevant to our analysis (e.g., 'Name', 'Ticket', 'Cabin')
+df.drop(columns=['Name', 'Ticket', 'Cabin'], inplace=True)
+
+Fill missing 'Age' values with the median age
+df['Age'].fillna(df['Age'].median(), inplace=True)
+
+Fill missing 'Embarked' values with the mode (most frequent) value
+df['Embarked'].fillna(df['Embarked'].mode()[0], inplace=True)
+
+Drop rows where 'Survived' is missing (though there shouldn't be any missing 'Survived' values)
+df.dropna(subset=['Survived'], inplace=True)
+
+Drop duplicate rows
+df.drop_duplicates(inplace=True)
+
+Verify the data after cleaning
+print("\nData after cleaning:")
+print(df.info())
+
+Exploratory Data Analysis (EDA)
+
+1. Distribution of Age and Fare
+plt.figure(figsize=(14, 6))
+
+Age distribution
